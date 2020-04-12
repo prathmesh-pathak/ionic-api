@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" padding></ion-back-button>
+    </ion-buttons>
+    <ion-title>Stress Buster</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="data">
+    <ion-card-header>
+      <img id="dog-img" src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&w=1000&q=80"
+        alt="">
+      <ion-card-title>
+        Joke Type : {{ data?.type }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label text-wrap>
+          <p>{{ data.setup }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label text-wrap>
+          <p>{{ data.punchline }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

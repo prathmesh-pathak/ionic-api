@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Stress Buster</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 id="heading">Random Joke API gets new jokes every time you refresh the page.</h2>
+  <ion-item>
+    <ion-label>Select Joke Type</ion-label>
+    <ion-select [(ngModel)]="type" (ionChange)="typeChanged()">
+      <ion-select-option value="">All</ion-select-option>
+      <ion-select-option value="general">General</ion-select-option>
+      <ion-select-option value="knock-knock">Knock-Knock</ion-select-option>
+      <ion-select-option value="programming">Programming</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let data of (results | async)" [routerLink]="['/', 'joke', data.id]">
+      <ion-avatar slot="start">
+        <ion-icon name="happy-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label text-wrap>{{ data.setup }}</ion-label>
+      <ion-note slot="end">
+        {{ data.id }}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
